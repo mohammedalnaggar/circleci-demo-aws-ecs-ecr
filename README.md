@@ -1,46 +1,70 @@
-# CircleCI Demo: AWS ECS ECR [![CircleCI status](https://circleci.com/gh/CircleCI-Public/circleci-demo-aws-ecs-ecr.svg "CircleCI status")](https://circleci.com/gh/CircleCI-Public/circleci-demo-aws-ecs-ecr)
+# Getting Started with Create React App
 
-## Deploy to AWS ECS from ECR via CircleCI 2.0 using Orbs (Example Project)
-This project provides an example of how to use orbs to conveniently build a Docker image on [CircleCI](https://circleci.com), push the Docker image to an Amazon Elastic Container Registry (ECR), and then deploy to Amazon Elastic Container Service (ECS) using AWS Fargate. Specifically, the [aws-ecr](https://circleci.com/orbs/registry/orb/circleci/aws-ecr) and the [aws-ecs](https://circleci.com/orbs/registry/orb/circleci/aws-ecs) Orbs will be used in this project.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-A tutorial walkthrough is available for the project at https://circleci.com/docs/2.0/ecs-ecr/
+## Available Scripts
 
-## Alternative branches
-* [More advanced example with Orbs](https://github.com/CircleCI-Public/circleci-demo-aws-ecs-ecr/tree/orbs)
-* [Without Orbs](https://github.com/CircleCI-Public/circleci-demo-aws-ecs-ecr/tree/without_orbs)
+In the project directory, you can run:
 
-## Prerequisites
-### Set up required AWS resources
-Builds of this project rely on AWS resources to be present in order to succeed. For convenience, the prerequisite AWS resources may be created using the terraform scripts procided in the `terraform_setup` directory.
-1. Ensure [terraform](https://www.terraform.io/) is installed on your system.
-2. Edit `terraform_setup/terraform.tfvars` to fill in the necessary variable values (an Amazon account with sufficient privileges to create resources like an IAM account, VPC, EC2 instances, Elastic Load Balancer, etc is required). (It is not advisable to commit this file to a public repository after it has been populated with your AWS credentials)
-3. Use terraform to create the AWS resources
-    ```
-    cd terraform_setup
-    terraform init
-    # Review the plan
-    terraform plan
-    # Apply the plan to create the AWS resources
-    terraform apply
-    ```
-4. You can run `terraform destroy` to destroy most of the created AWS resources but in case of lingering undeleted resources, it is recommended to check the [AWS Management Console](https://console.aws.amazon.com/) to see if there are any remaining undeleted resources to avoid unwanted costs. In particular, please check the ECS, CloudFormation and VPC pages.
+### `npm start`
 
-### Configure environment variables on CircleCI
-The following [environment variables](https://circleci.com/docs/2.0/env-vars/#setting-an-environment-variable-in-a-project) must be set for the project on CircleCI via the project settings page, before the project can be built successfully.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-| Variable                       | Description                                               |
-| ------------------------------ | --------------------------------------------------------- |
-| `AWS_ACCESS_KEY_ID`            | Used by the AWS CLI                                       |
-| `AWS_SECRET_ACCESS_KEY `       | Used by the AWS CLI                                       |
-| `AWS_DEFAULT_REGION`           | Used by the AWS CLI. Example value: "us-east-1" (Please make sure the specified region is supported by the Fargate launch type)                          |
-| `AWS_ACCOUNT_ID`               | AWS account id. This information is required for deployment.                                   |
-| `AWS_RESOURCE_NAME_PREFIX`     | Prefix that some of the required AWS resources are assumed to have in their names. The value should correspond to the `aws_resource_prefix` variable value in `terraform_setup/terraform.tfvars`.                             |
+### `npm test`
 
-## Useful Links & References
-- https://circleci.com/orbs/registry/orb/circleci/aws-ecr
-- https://circleci.com/orbs/registry/orb/circleci/aws-ecs
-- https://github.com/CircleCI-Public/aws-ecr-orb
-- https://github.com/CircleCI-Public/aws-ecs-orb
-- https://github.com/awslabs/aws-cloudformation-templates
-- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_GetStarted.html
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
