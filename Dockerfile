@@ -3,9 +3,9 @@ FROM node:15.4 as build
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json /app/
 RUN npm install 
-COPY . .
+COPY . ./
 EXPOSE 80
 CMD ["npm", "run", "start"]
 
