@@ -1,3 +1,4 @@
 .circleci
 .terraform_setup
 **/node_modules
+**/nginx
